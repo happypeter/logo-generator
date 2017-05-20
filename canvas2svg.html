@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="main.css">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+
+<script src="./js/canvas2svg.js"></script>
+<script>
+//make a mock canvas context using canvas2svg. We use a C2S namespace for less typing:
+var ctx = new C2S(200,200); //width, height of your desired svg file
+//do your normal canvas stuff:
+ctx.fillStyle="green";
+ctx.fillRect(0,0,200,200);
+
+ctx.font         = '98px MyWebFont';
+ctx.fillStyle = 'orangered';
+ctx.textBaseline = 'top';
+ctx.fillText  ('小白', 0, 0);
+
+
+//ok lets serialize to SVG:
+var myRectangle = ctx.getSerializedSvg(true);
+document.write(myRectangle)
+var img    = ctx.toDataURL("image/png");
+console.log(img)
+
+</script>
+
+</body>
+</html>

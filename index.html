@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+  @font-face {
+    font-family: 'MyWebFont';
+    src: url('fonts/sj.ttf')  format('truetype')
+  }
+  </style>
+</head>
+<body>
+
+<h1>你好吗</h1>
+<canvas id="canvas" width="500" height="400"></canvas>
+
+  <script>
+  console.log('hello ...')
+  var ctx = document.getElementById('canvas').getContext('2d');
+  var canvas = document.getElementById('canvas')
+  var kitty = new Image();
+  kitty.src = 'http://o86bpj665.bkt.clouddn.com/posters/meteor-react-bird.png';
+  kitty.onload = function(){
+    console.log('onload...')
+    ctx.font         = '68px MyWebFont';
+    ctx.fillStyle = 'green';
+    ctx.textBaseline = 'top';
+    ctx.fillText  ('你好', 0, 270);
+    var d=canvas.toDataURL("image/png");
+    console.log('dddd', d)
+    document.write("<img src='"+d+"' alt='from canvas'/>");
+  };
+  </script>
+</body>
+</html>
